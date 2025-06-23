@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: go-backend
-          image: jayantsampletech/backend:v1
+          image: jayantsampletech/argobackend:v1
           ports:
             - containerPort: 8080
           env:

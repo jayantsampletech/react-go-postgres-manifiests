@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: mainfrontendcr
-          image: jayantsampletech/frontend:v1
+          image: jayantsampletech/argofrontend:v1
           env:
             - name: REACT_APP_SERVER_URL
               valueFrom:
