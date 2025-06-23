@@ -20,7 +20,7 @@ spec:
             - containerPort: 8080
           env:
             - name: DB_HOST
-              value: "http://localhost" ## replace withdb endpoint
+              value: "198.19.249.2" ## replace withdb endpoint
             - name: DB_PORT
               value: "5432"
             - name: DB_NAME
@@ -29,7 +29,7 @@ spec:
                   name: my-backend-secret
                   key: databasename
             - name: ALLOWED_ORIGINS
-              value: "http://localhost:8080" 
+              value: "http://198.19.249.2:8081" 
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
