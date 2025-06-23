@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: mynamespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-backend
+  template:
+    metadata:
+      labels:
+        app: go-backend
+    spec:
+      containers:
+        - name: go-backend
+          image: jayantsampletech/backend:v1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              value: "http://localhost" ## replace withdb endpoint
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: my-backend-secret
+                  key: databasename
+            - name: ALLOWED_ORIGINS
+              value: "http://localhost:8080" 
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: my-backend-secret
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: my-backend-secret
+                  key: password
