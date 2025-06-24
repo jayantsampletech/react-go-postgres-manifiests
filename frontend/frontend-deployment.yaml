@@ -29,4 +29,4 @@ spec:
                   name: frontend-configmap
                   key: REACT_APP_SERVER_URL
           ports:
-            - containerPort: 3000
+            - containerPort: 80
